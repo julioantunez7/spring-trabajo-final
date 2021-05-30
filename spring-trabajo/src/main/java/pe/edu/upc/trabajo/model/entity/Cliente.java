@@ -53,6 +53,7 @@ public class Cliente {
 		this.mascotas = mascotas;
 		this.boletas = boletas;
 	}
+	
 
 
 	public Integer getIdCliente() {

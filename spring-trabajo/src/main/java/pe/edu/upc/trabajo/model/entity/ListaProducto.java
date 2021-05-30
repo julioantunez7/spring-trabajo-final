@@ -40,6 +40,7 @@ public class ListaProducto {
 		this.precio = precio;
 		this.stock = stock;
 	}
+	
 
 	public Veterinaria getVeterinaria() {
 		return veterinaria;

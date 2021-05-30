@@ -24,6 +24,12 @@ public class Pago {
 		this.monto = monto;
 	}
 
+	
+	public Pago() {
+		super();
+	}
+
+
 	public Integer getId() {
 		return id;
 	}

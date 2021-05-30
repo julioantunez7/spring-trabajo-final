@@ -30,6 +30,14 @@ public class Consulta {
 		this.receta = receta;
 		this.cita = cita;
 	}
+	
+	
+
+	public Consulta() {
+		super();
+	}
+
+
 
 	public Integer getId() {
 		return id;

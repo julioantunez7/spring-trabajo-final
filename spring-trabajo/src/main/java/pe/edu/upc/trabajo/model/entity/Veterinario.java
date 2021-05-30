@@ -35,6 +35,12 @@ public class Veterinario {
 	
 	
 	
+	public Veterinario() {
+		super();
+	}
+
+
+
 	public Veterinario(Integer id, String nombre, Integer numero, Veterinaria veterinaria, List<Cita> citas) {
 		super();
 		this.id = id;

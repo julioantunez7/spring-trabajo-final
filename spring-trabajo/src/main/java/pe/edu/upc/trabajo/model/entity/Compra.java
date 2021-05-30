@@ -70,6 +70,10 @@ public class Compra {
 		this.cantidad = cantidad;
 		this.cliente = cliente;
 	}
+
+	public Compra() {
+		super();
+	}
 	
 	
 }

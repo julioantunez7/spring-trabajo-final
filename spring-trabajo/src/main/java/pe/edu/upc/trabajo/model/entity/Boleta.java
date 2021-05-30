@@ -36,6 +36,12 @@ public class Boleta {
 		this.compras = compras;
 	}
 
+	
+	public Boleta() {
+		super();
+	}
+
+
 	public Integer getId() {
 		return id;
 	}

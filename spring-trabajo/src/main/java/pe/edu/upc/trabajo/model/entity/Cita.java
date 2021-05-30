@@ -55,6 +55,12 @@ public class Cita {
 		this.consulta = consulta;
 	}
 
+	
+	public Cita() {
+		super();
+	}
+
+
 	public Integer getId() {
 		return id;
 	}

@@ -18,6 +18,7 @@ public class Producto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idProducto")
 	private Integer idProducto;
+	
 	@Column(name = "nombreProducto", length = 15)
 	private String nombreProducto;
 	@Column(name = "descripcionProducto", length = 100)
@@ -42,7 +43,7 @@ public class Producto {
 		this.descripcionProducto = descripcionProducto;
 		this.precioProducto = precioProducto;
 	}
-
+	
 	public Integer getIdProducto() {
 		return idProducto;
 	}

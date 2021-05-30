@@ -78,6 +78,10 @@ public class Veterinaria {
 		this.listaproductos = listaproductos;
 	}
 	
+	
+	public Veterinaria() {
+		super();
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
