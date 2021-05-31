@@ -14,7 +14,7 @@ import pe.edu.upc.trabajo.service.crud.VeterinariaService;
 
 
 @Controller
-@RequestMapping("/veterinarias")
+@RequestMapping("/principal")
 public class VeterinariaController {
 
 	@Autowired
@@ -29,6 +29,6 @@ public class VeterinariaController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "veterinarias/lista";
+		return "principal";
 	}
 }

@@ -11,7 +11,7 @@
     font-size: 22px;
     display: flex;
     align-items: center;
-    background: url("imagenes/veterinarios.jpg");
+    background: url("../images/veterinarios.jpg");
     background-size: 100% 100%;
     width: 100%;
     height: 600px;
