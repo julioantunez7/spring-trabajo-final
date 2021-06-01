@@ -8,11 +8,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Veterinarias")
+//,indexes = { @Index(columnList = "veterinaria_nombre", name = "veterinarias_index_veterinaria_nombre")})
 public class Veterinaria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
