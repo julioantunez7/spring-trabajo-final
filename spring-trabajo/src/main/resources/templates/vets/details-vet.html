@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<section class="bg-light">
+			<div class="container ">
+				<div class="row">
+					<div class="col-lg-6 py-5 text-center ">
+						<img src="../images/vet.png" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 py-5 text-center">
+						<h3 class="text-black py-5"></h3>
+
+						<form class="d-flex" th:action="@{/search/vets}"
+							th:object="${vetSearch}" method="get">
+							<input class="form-control me-2" type="search"
+								th:field="*{nombreVeterinaria}" placeholder="Search Vets"
+								aria-label="Search">
+							<button class="btn btn-warning" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
