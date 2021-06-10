@@ -9,5 +9,5 @@ import pe.edu.upc.trabajo.model.entity.Producto;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
-	//List<Producto> findByProducto(String producto);
+	List<Producto> findByNombreProducto(String nombreProducto);
 }

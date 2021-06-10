@@ -9,5 +9,5 @@ import pe.edu.upc.trabajo.model.entity.Mascota;
 
 @Repository
 public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
-	//List<Mascota> findByMascota(String mascota);
+	List<Mascota> findByNombre(String nombre); // es findByName(String name)
 }

@@ -23,10 +23,10 @@ public class ProductoServiceImpl implements ProductoService{
 		return productoRepository;
 	}
 
-	//@Transactional(readOnly=true)
-	//@Override
-	//public List<Producto> findByProducto(String producto) throws Exception {
-	//	return productoRepository.findByProducto(producto);
-	//}
+	@Transactional(readOnly=true)
+	@Override
+	public List<Producto> findByNombreProducto(String nombreProducto) throws Exception {
+		return productoRepository.findByNombreProducto(nombreProducto);
+	}
 
 }

@@ -29,7 +29,6 @@ public class Cita {
 	@ManyToOne
 	@JoinColumn(name= "mascota_id")
 	private Mascota mascota;
-	
 	@Column(name = "cita_fecha", length = 10)
 	@Temporal(TemporalType.DATE)
 	private Date fecha;

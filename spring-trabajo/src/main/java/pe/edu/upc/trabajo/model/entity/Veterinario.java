@@ -15,8 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Veterinarios")
-//,indexes = { @Index(columnList = "veterinario_nombre", name = "veterinarios_veterinario_nombre")})
+@Table(name = "Veterinarios"
+,indexes = { @Index(columnList = "veterinario_nombre", name = "veterinarios_index_nombre")})
 public class Veterinario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -23,9 +23,9 @@ public class VeterinarioServiceImpl implements VeterinarioService{
 		return veterinarioRepository;
 	}
 
-	//@Transactional(readOnly=true)
-	//@Override
-	//public List<Veterinario> findByVeterinario(String veterinario) throws Exception {
-	//	return veterinarioRepository.findByVeterinario(veterinario);
-	//}
+	@Transactional(readOnly=true)
+	@Override
+	public List<Veterinario> findByNombre(String nombre) throws Exception {
+		return veterinarioRepository.findByNombre(nombre);
+	}
 }

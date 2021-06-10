@@ -24,10 +24,10 @@ public class VeterinariaServiceImpl implements VeterinariaService{
 		return veterinariaRepository;
 	}
 
-	//@Transactional(readOnly=true)
-	//@Override
-	//public List<Veterinaria> findByVeterinaria(String veterinaria) throws Exception {
-	//	return veterinariaRepository.findByVeterinaria(veterinaria);
-	//}
+	@Transactional(readOnly=true)
+	@Override
+	public List<Veterinaria> findByNombreVeterinaria(String nombreVeterinaria) throws Exception {
+		return veterinariaRepository.findByNombreVeterinaria(nombreVeterinaria);
+	}
 
 }

@@ -22,10 +22,10 @@ public class MascotaServiceImpl implements MascotaService{
 		return mascotaRepository;
 	}
 
-	//@Transactional(readOnly=true)
-	//@Override
-	//public List<Mascota> findByMascota(String mascota) throws Exception {
-	//	return mascotaRepository.findByMascota(mascota);
-	//}
+	@Transactional(readOnly=true)
+	@Override
+	public List<Mascota> findByNombre(String nombre) throws Exception {
+		return mascotaRepository.findByNombre(nombre);
+	}
 
 }

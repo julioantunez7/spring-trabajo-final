@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Veterinarias")
-//,indexes = { @Index(columnList = "veterinaria_nombre", name = "veterinarias_index_veterinaria_nombre")})
+@Table(name = "Veterinarias",
+indexes = {@Index(columnList = "veterinaria_nombre", name = "Veterinarias_index_veterinaria_nombre")})
 public class Veterinaria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

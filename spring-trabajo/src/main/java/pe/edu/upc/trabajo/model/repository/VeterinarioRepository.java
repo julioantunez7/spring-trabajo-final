@@ -9,5 +9,5 @@ import pe.edu.upc.trabajo.model.entity.Veterinario;
 
 @Repository
 public interface VeterinarioRepository extends JpaRepository<Veterinario, Integer> {
-	//List<Veterinario> findByVeterinario(String veterinario);
+	List<Veterinario> findByNombre(String nombre);
 }
