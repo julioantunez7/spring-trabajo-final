@@ -24,6 +24,16 @@ public class VeterinariaController {
 	@Autowired
 	private VeterinariaService veterinariaService;
 
+	@GetMapping("details")	
+	public String details(Model model) {
+		try {
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "vets/details-vet";
+	}
+	
 	@GetMapping("search1")	
 	public String mostrar(Model model) {
 		try {
