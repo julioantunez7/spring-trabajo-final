@@ -6,15 +6,6 @@
 	<header th:replace="layout/layout :: header"></header>
 
 	<main>
-		<nav style="-bs-breadcrumb-divider: '&gt;';" aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item">Search</li>
-				<li class="breadcrumb-item">Vets</li>
-				<li class="breadcrumb-item active" aria-current="page">Result
-				</li>
-			</ol>
-		</nav>
-
 		<h2>Result search:</h2>
 
 		<div class="row" style="margin: 20px;">
@@ -27,7 +18,7 @@
 						<h5 class="card-title text-center" th:text="${vets.nombreVeterinaria}">.</h5>
 						<p class="card-text text-center" th:text="${vets.descripcionVeterinaria}">.</p>
 						<p class="card-text text-center" th:text="${vets.direccionVeterinaria}">.</p>
-						<a href="../vets/details" class="btn btn-danger">View Details</a>
+						<a th:href="@{'/vets/' + ${vets.idVeterinaria}}" class="btn btn-danger">View Details</a>
 						<a href="/vets/search1"class="btn btn-danger">Return</a>
 					</div>
 				</div>
