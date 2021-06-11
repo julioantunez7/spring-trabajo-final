@@ -25,6 +25,16 @@
 							</button>
 						</form>
 						<br></br>
+						<form class="d-flex" th:action="@{/search/vets/distrit}"
+						 th:object="${vetDistritSearch}" method="get">
+							<input class="form-control me-2" type="search"
+							   th:field="*{direccionVeterinaria}" placeholder="Search Vets Distrit"
+								aria-label="Search">
+							<button class="btn btn-warning" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+						<br></br>
 						<a class="btn btn-warning" href="/" type="submit">
 								<i >Return</i>
 							</a>

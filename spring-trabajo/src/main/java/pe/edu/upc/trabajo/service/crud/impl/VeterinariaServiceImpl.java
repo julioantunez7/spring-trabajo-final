@@ -30,4 +30,9 @@ public class VeterinariaServiceImpl implements VeterinariaService{
 		return veterinariaRepository.findByNombreVeterinaria(nombreVeterinaria);
 	}
 
+	@Override
+	public List<Veterinaria> findByDireccionVeterinaria(String direccionVeterinaria) throws Exception {
+		return veterinariaRepository.findByDireccionVeterinaria(direccionVeterinaria);
+	}
+
 }

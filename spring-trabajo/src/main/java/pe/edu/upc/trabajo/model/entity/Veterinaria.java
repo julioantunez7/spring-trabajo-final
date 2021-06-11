@@ -14,7 +14,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Veterinarias",
-indexes = {@Index(columnList = "veterinaria_nombre", name = "Veterinarias_index_veterinaria_nombre")})
+indexes = {@Index(columnList = "veterinaria_nombre", name = "Veterinarias_index_veterinaria_nombre")
+,@Index(columnList = "veterinaria_direccion", name = "Veterinarias_index_veterinaria_direccion")})
 public class Veterinaria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +25,8 @@ public class Veterinaria {
 	private String nombreVeterinaria;
 	@Column(name = "veterinaria_direccion", length = 50)
 	private String direccionVeterinaria;
+	@Column(name = "veterinaria_distrito", length = 50)
+	private String distritoVeterinaria;
 	@Column(name = "veterinaria_numero", columnDefinition = "NUMERIC(9)")
 	private Integer numeroVeterinaria;
 	@Column(name = "veterinaria_descripcion", length = 100)

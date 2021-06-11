@@ -6,6 +6,7 @@
 	<header th:replace="layout/layout :: header"></header>
 
 	<main>
+		<h2>Vet Information:</h2>
 		<section class="bg-light">
 			<div class="container ">
 				<div class="row">
@@ -13,20 +14,24 @@
 						<img src="../images/vet.png" class="img-fluid" alt="">
 					</div>
 					<div class="col-lg-6 py-5 text-center">
-						<h3 class="text-black py-5">Information of the vet</h3>
-						<p class="text-center">ira</p>
-						<p class=" text-center">los datos</p>
-						<p class=" text-center">cuando</p>
-						<p class=" text-center">funcione</p>
-						<a href="#" class="btn btn-danger">Create Citation</a> <a href="#"
-							class="btn btn-danger">View Products</a> <a href="/vets/search1"
-							class="btn btn-danger">Return</a>
+						<h3 class="text-black py-5"></h3>
+						<h5 class="card-title text-center"
+							th:text="${vet.nombreVeterinaria}">.</h5>
+						<p class="card-text text-ce	nter"
+							th:text="${vet.descripcionVeterinaria}">.</p>
+						<p class="card-text text-ce	nter"
+							th:text="${vet.direccionVeterinaria}">.</p>
+						<p class="card-text text-ce	nter"
+							th:text="${vet.numeroVeterinaria}">.</p>
+						<a href="#" class="btn btn-danger">Citation</a> <a href="#"
+							class="btn btn-danger">Products</a> <a href="/"
+							class="btn btn-danger">Exit</a>
 					</div>
-
 				</div>
 			</div>
 
 		</section>
+
 	</main>
 
 	<footer th:replace="layout/layout :: footer"></footer>

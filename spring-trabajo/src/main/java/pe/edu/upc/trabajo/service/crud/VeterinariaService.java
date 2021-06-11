@@ -6,4 +6,5 @@ import pe.edu.upc.trabajo.model.entity.Veterinaria;
 
 public interface VeterinariaService extends CrudService<Veterinaria, Integer> {
 	List<Veterinaria> findByNombreVeterinaria(String nombreVeterinaria) throws Exception;
+	List<Veterinaria> findByDireccionVeterinaria(String direccionVeterinaria)throws Exception;
 }

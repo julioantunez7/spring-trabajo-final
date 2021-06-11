@@ -39,6 +39,8 @@ public class VeterinariaController {
 		try {
 			Veterinaria vetSearch = new Veterinaria();
 			model.addAttribute("vetSearch", vetSearch);
+			Veterinaria vetDistritSearch = new Veterinaria();
+			model.addAttribute("vetDistritSearch", vetDistritSearch);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -61,13 +63,13 @@ public class VeterinariaController {
 		return "vets/lista";
 	}
 	
-	@GetMapping("{id}")		// GET: /regions/{id}
-	public String findById(Model model, @PathVariable("id") Integer id) {
+	@GetMapping("{idVeterinaria}")		// GET: /v/{id}
+	public String findById(Model model, @PathVariable("idVeterinaria") Integer id) {
 		try {
 			Optional<Veterinaria> optional = veterinariaService.findById(id);
 			if(optional.isPresent()) {
 				model.addAttribute("vet", optional.get());
-				return "vets/view"; // Archivo Html
+				return "vets/details-vet"; // Archivo Html
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

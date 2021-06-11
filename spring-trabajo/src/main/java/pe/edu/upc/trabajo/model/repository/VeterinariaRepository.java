@@ -10,4 +10,5 @@ import pe.edu.upc.trabajo.model.entity.Veterinaria;
 @Repository
 public interface VeterinariaRepository extends JpaRepository<Veterinaria, Integer> {
 	List<Veterinaria> findByNombreVeterinaria(String nombreVeterinaria);
+	List<Veterinaria> findByDireccionVeterinaria(String direccionVeterinaria);
 }

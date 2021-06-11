@@ -32,5 +32,20 @@ public class SearchController {
 		
 		return "search/vets-result";
 	}
+	
+	@GetMapping("vets/distrit")
+	public String searchVetDistritGet(Model model, @ModelAttribute("vetDistritSearch") Veterinaria vetDistritSearch) {
+		System.out.println(vetDistritSearch.getDireccionVeterinaria());
+		try {
+			List<Veterinaria> vetsDistritFound = veterinariaService.findByDireccionVeterinaria(vetDistritSearch.getDireccionVeterinaria());
+			model.addAttribute("vetsDistritFound", vetsDistritFound);
+			model.addAttribute("vetDistritSearch", vetDistritSearch);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		return "search/vets-result1";
+	}
 
 }

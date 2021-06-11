@@ -11,7 +11,6 @@
 				<li class="breadcrumb-item">Search</li>
 				<li class="breadcrumb-item">Vets</li>
 				<li class="breadcrumb-item active" aria-current="page">Result
-					for <span th:text="${vetSearch.nombreVeterinaria}"></span>
 				</li>
 			</ol>
 		</nav>
@@ -19,23 +18,21 @@
 		<h2>Result search:</h2>
 
 		<div class="row" style="margin: 20px;">
-			<div th:each="vet : ${vetsFound}" class="col-sm-2">
+			<div th:each="vets : ${vetsDistritFound}" class="col-sm-2">
 				<div class="card">
 					<div class="card-body">
 						<div class="text-center ">
 							<img src="../images/vet.png" class="img-fluid" alt="">
 						</div>
-						<h5 class="card-title text-center" th:text="${vet.nombreVeterinaria}">.</h5>
-						<p class="card-text text-ce	nter" th:text="${vet.descripcionVeterinaria}">.</p>
-						<a th:href="@{'/vets/' + ${vet.idVeterinaria}}" class="btn btn-danger">View Details</a>
+						<h5 class="card-title text-center" th:text="${vets.nombreVeterinaria}">.</h5>
+						<p class="card-text text-center" th:text="${vets.descripcionVeterinaria}">.</p>
+						<p class="card-text text-center" th:text="${vets.direccionVeterinaria}">.</p>
+						<a href="../vets/details" class="btn btn-danger">View Details</a>
 						<a href="/vets/search1"class="btn btn-danger">Return</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		
-
 	</main>
 	<footer th:replace="layout/layout :: footer"></footer>
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
