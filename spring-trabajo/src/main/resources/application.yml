@@ -1,14 +1,14 @@
 ##Puerto de la aplicacion
 server:
-  port: 8092
+  port: 8080
   
 ## Postgres
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/trabajo
+    url: jdbc:postgresql://localhost:5432/pandemia
     username: postgres
-    password: julio0251
+    password: asd
   jpa:
     database: postgresql
     hibernate:

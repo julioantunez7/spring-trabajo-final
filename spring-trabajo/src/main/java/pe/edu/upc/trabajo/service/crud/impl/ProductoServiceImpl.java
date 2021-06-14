@@ -29,4 +29,13 @@ public class ProductoServiceImpl implements ProductoService{
 		return productoRepository.findByNombreProducto(nombreProducto);
 	}
 
+	@Override
+	public List<Producto> findByDescripcionProducto(String descripcionProducto) throws Exception {
+		
+		return productoRepository.findByDescripcionProducto(descripcionProducto);
+	}
+
+
+
+	
 }
