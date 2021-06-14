@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pe.edu.upc.trabajo.model.entity.Cita;
 import pe.edu.upc.trabajo.model.entity.Producto;
 import pe.edu.upc.trabajo.model.entity.Veterinaria;
+import pe.edu.upc.trabajo.service.crud.CitaService;
 import pe.edu.upc.trabajo.service.crud.ProductoService;
 import pe.edu.upc.trabajo.service.crud.VeterinariaService;
 
@@ -25,6 +27,10 @@ public class SearchController {
 	
 	@Autowired
 	private ProductoService productoService;
+	
+	@Autowired
+	private CitaService citaService;
+
 	
 	@GetMapping("vets")
 	public String searchRegionGet(Model model, @ModelAttribute("vetSearch") Veterinaria vetSearch) {
@@ -91,6 +97,22 @@ public class SearchController {
 		return "search/product-result1";
 	}
 	
-
-
+	
+	//------CITA----
+	
+	@GetMapping("appointments")
+	public String searchAppointmentGet(Model model, @ModelAttribute("appointmentSearch") Cita appointmentSearch) {
+		System.out.println(appointmentSearch.getFecha());
+		try {
+			List<Cita> appointmentsFound=citaService.findByFecha(appointmentSearch.getFecha());
+			model.addAttribute("appointmentsFound", appointmentsFound);
+			model.addAttribute("appointmentSearch", appointmentSearch);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		return "search/appointments-result";
+	}
+	
 }

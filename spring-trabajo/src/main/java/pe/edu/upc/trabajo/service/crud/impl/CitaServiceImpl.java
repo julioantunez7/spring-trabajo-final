@@ -1,11 +1,13 @@
 package pe.edu.upc.trabajo.service.crud.impl;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import pe.edu.upc.trabajo.model.entity.Cita;
-import pe.edu.upc.trabajo.model.entity.CitaId;
 import pe.edu.upc.trabajo.model.repository.CitaRepository;
 import pe.edu.upc.trabajo.service.crud.CitaService;
 
@@ -16,8 +18,13 @@ public class CitaServiceImpl implements CitaService {
 	private CitaRepository citaRepository;
 	
 	@Override
-	public JpaRepository<Cita, CitaId> getRepository() {
+	public JpaRepository<Cita, Integer> getRepository() {
 		return citaRepository;
+	}
+
+	@Override
+	public List<Cita> findByFecha(Date fecha) throws Exception {
+		return citaRepository.findByFecha(fecha);
 	}
 
 }

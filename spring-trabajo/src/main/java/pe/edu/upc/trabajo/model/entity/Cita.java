@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -14,27 +14,31 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
-@Table(name = "Citas")
-@IdClass(value = CitaId.class)
+@Table(name = "Citas",
+		indexes= {@Index( columnList = "cita_fecha", name = "citas_index_cita_fecha")})
 public class Cita {
 	
 	@Id
 	private Integer id;
-	@Id
+
 	@ManyToOne
 	@JoinColumn(name= "veterinario_id")
 	private Veterinario veterinario;
-	@Id
+
 	@ManyToOne
 	@JoinColumn(name= "mascota_id")
 	private Mascota mascota;
+	
 	@Column(name = "cita_fecha", length = 10)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date fecha;
 	@Column(name = "cita_razon", length = 20)
 	private String razon;
-	@Column(name = "cita_precio", columnDefinition = "DECIMAL(3,2)")
+	@Column(name = "cita_precio", columnDefinition = "DECIMAL(5,2)")
 	private Float precio;
 	
 	@OneToOne(mappedBy = "cita", fetch = FetchType.LAZY)
