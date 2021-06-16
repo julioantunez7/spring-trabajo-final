@@ -17,13 +17,24 @@ public class Consulta {
 	private Integer id;
 	@Column(name = "consulta_receta", length = 30)
 	private String receta;
-	
+	@Column(name = "link_whats", length = 30)
+	private String linkwhats;
 	@OneToOne()
 	private Cita cita;
 
 	
 	
 	
+	public String getLinkwhats() {
+		return linkwhats;
+	}
+
+	public void setLinkwhats(String linkwhats) {
+		this.linkwhats = linkwhats;
+	}
+
+
+
 	public Consulta(Integer id, String receta, Cita cita) {
 		super();
 		this.id = id;
@@ -65,3 +76,4 @@ public class Consulta {
 	
 	
 }
+
