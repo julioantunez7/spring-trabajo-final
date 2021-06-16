@@ -1,5 +1,6 @@
 package pe.edu.upc.trabajo.service.crud.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class ProductoServiceImpl implements ProductoService{
 
 	@Autowired
 	private ProductoRepository productoRepository;
+	private List<Producto> auxiliarList = new ArrayList<>();
 	
 	@Override
 	public JpaRepository<Producto, Integer> getRepository() {
@@ -35,7 +37,21 @@ public class ProductoServiceImpl implements ProductoService{
 		return productoRepository.findByDescripcionProducto(descripcionProducto);
 	}
 
+	@Override
+	public void saveFoundProduct(Producto producto) {
+		auxiliarList.add(producto);
+		
+	}
 
+	@Override
+	public void saveProduct(Producto producto) {
+		productoRepository.save(producto);
+		auxiliarList.add(producto);
+	}
 
+	@Override
+	public void deleteAllProducts() {
+		auxiliarList = new ArrayList<>();
+	}
 	
 }
