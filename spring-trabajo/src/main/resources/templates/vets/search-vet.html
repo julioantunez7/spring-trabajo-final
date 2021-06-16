@@ -43,6 +43,23 @@
 			</div>
 
 		</section>
+		
+				<h2 class="text-center">Vets List</h2>
+				<div class="row" style="margin: 20px;">
+			<div th:each="vet : ${veterinarias}" class="col-sm-2">
+				<div class="card">
+					<div class="card-body">
+						<div class="text-center ">
+							<img src="../images/vet.png" class="img-fluid" alt="">
+						</div>
+						<h5 class="card-title text-center" th:text="${vet.nombreVeterinaria}">.</h5>
+						<p class="card-text text-ce	nter" th:text="${vet.descripcionVeterinaria}">.</p>
+						<a th:href="@{'/vets/' + ${vet.idVeterinaria}}" class="btn btn-danger">View Details</a>
+						<a href="/vets/search1"class="btn btn-danger">Return</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</main>
 
 	<footer th:replace="layout/layout :: footer"></footer>

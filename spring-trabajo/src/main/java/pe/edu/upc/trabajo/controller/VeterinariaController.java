@@ -29,6 +29,10 @@ public class VeterinariaController {
 		try {
 			Veterinaria vetSearch = new Veterinaria();
 			model.addAttribute("vetSearch", vetSearch);
+			
+			List<Veterinaria> veterinarias = veterinariaService.getAll();
+			model.addAttribute("veterinarias", veterinarias);
+			
 			Veterinaria vetDistritSearch = new Veterinaria();
 			model.addAttribute("vetDistritSearch", vetDistritSearch);
 		} catch (Exception e) {
