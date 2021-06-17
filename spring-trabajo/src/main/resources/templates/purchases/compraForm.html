@@ -23,10 +23,11 @@
 							<div class="card-body">
 								<div class="table table-responsive">
 									<br></br>
-									<button  class="btn btn-warning "
-										type="submit">
+									<a class="btn btn-warning "
+										href="/purchases" type="submit">
 										<i class="fas fa-cart-plus"> Add</i>
-									</button><br></br>
+									</a>
+									<br></br>
 									<h1>List of Products</h1>
 									<table class="table table-info table-striped table-hover">
 										<thead>
@@ -56,17 +57,14 @@
 										</tbody>
 									</table>
 									<br></br>
-									<form id="formCompra" th:objec="${compraDelForm}"
-										th:action="@{/addpurchase}" method="post">
-										<button style="margin-left: 25px" class="btn btn-warning"
-											type="submit">
+										<a th:href="@{/purchases}" style="margin-left: 25px"
+											class="btn btn-warning" type="submit">
 											<i class="fas fa-money-bill-wave"> Make Purchase</i>
-										</button>
-										<button style="margin-left: 25px" class="btn btn-warning"
-											type="submit">
-											<i class="fas fa-window-close"> Cancel Purchase</i>
-										</button>
-									</form>
+										</a>
+									<a style="margin-left: 25px"
+										class="btn btn-warning" href="/" type="submit">
+										<i class="fas fa-window-close"> Cancel Purchase</i>
+									</a>
 								</div>
 							</div>
 						</div>

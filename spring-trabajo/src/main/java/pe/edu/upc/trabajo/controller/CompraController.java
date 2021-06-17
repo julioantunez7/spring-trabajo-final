@@ -25,7 +25,7 @@ public class CompraController {
 	private Producto producto;
 	private CompraService compraService;
 	
-	@GetMapping("buyproducts")
+	@GetMapping
 	public String ListarProductos(Model model) {
 		try {
 			List<Producto> producto = productoService.getAll();
@@ -57,5 +57,7 @@ public class CompraController {
 		productoService.deleteAllProducts();
 		return "redirect:/addpurchase";
 	}
+	
+
 	
 }
