@@ -53,5 +53,10 @@ public class ProductoServiceImpl implements ProductoService{
 	public void deleteAllProducts() {
 		auxiliarList = new ArrayList<>();
 	}
-	
+
+	@Override
+	public List<Producto> SearchAllProducts() {
+		return auxiliarList;
+	}
+
 }

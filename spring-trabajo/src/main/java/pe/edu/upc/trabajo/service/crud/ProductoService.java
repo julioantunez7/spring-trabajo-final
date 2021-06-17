@@ -10,4 +10,5 @@ public interface ProductoService extends CrudService<Producto, Integer> {
 	public void saveFoundProduct(Producto producto);
 	public void saveProduct(Producto producto);
 	public void deleteAllProducts();
+	public List<Producto> SearchAllProducts();
 }
