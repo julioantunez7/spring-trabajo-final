@@ -58,6 +58,21 @@ public class CompraController {
 		return "redirect:/addpurchase";
 	}
 	
-
+	@PostMapping("/searchProduct")
+	public String searchProduct(@ModelAttribute("productoDelForm") Producto producto, Model model) {
+		try {
+			List<Producto> productoencontrado = productoService.findByNombreProducto(producto.getNombreProducto());
+			try {
+				//productoService.saveFoundProduct(productoencontrado);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.err.println(e.getMessage());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return AgregarCompra(model);
+	}
 	
 }
