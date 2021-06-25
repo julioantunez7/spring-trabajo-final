@@ -29,6 +29,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/").permitAll()
+				.antMatchers("/products/**").authenticated()
+				.antMatchers("/pets/**").authenticated()
+				.antMatchers("/veterinary/**").authenticated()
+				.antMatchers("/vets/**").authenticated()
+				.antMatchers("/appointments/**").authenticated()
 			.and()
 			.formLogin()
 				.loginProcessingUrl("/signin")
@@ -37,8 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.passwordParameter("password")
 			.and()
 			.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/")
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutSuccessUrl("/")
 			;
 			
 	}
