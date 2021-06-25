@@ -14,14 +14,15 @@
 						<img src="../images/vet.png" class="img-fluid" alt="">
 					</div>
 					<div class="col-lg-6 py-5 text-center">
-						<h3 class="text-black text-center"
-							th:text="${vet.nombreVeterinaria}">.</h3>
+						<h2 class="text-black text-center"
+							th:text=" ${vet.nombreVeterinaria}">.</h2>
+							<br></br>
 						<p class="card-text text-ce	nter"
-							th:text="${vet.descripcionVeterinaria}">.</p>
+							th:text=" 'Vet Description: ' + ${vet.descripcionVeterinaria}">.</p>
 						<p class="card-text text-ce	nter"
-							th:text="${vet.direccionVeterinaria}">.</p>
+							th:text=" 'Vet Direction: ' + ${vet.direccionVeterinaria}">.</p>
 						<p class="card-text text-ce	nter"
-							th:text="${vet.numeroVeterinaria}">.</p>
+							th:text="'Vet Number: ' + ${vet.numeroVeterinaria}">.</p>
 						<a href="#" class="btn btn-danger">Citation</a> <a href="#"
 							class="btn btn-danger">Products</a> <a href="/"
 							class="btn btn-danger">Exit</a>

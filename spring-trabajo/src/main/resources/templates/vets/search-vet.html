@@ -10,10 +10,10 @@
 			<div class="container ">
 				<div class="row">
 					<div class="col-lg-6 py-5 text-center ">
-						<img src="../images/vet.png" class="img-fluid" alt="">
+						<img src="../images/vet1.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="col-lg-6 py-5 text-center">
-						<h3 class="text-black py-5"></h3>
+						<h2 class="text-black py-5">Search Vet</h2>
 
 						<form class="d-flex" th:action="@{/search/vets}"
 							th:object="${vetSearch}" method="get">
@@ -52,8 +52,9 @@
 						<div class="text-center ">
 							<img src="../images/vet.png" class="img-fluid" alt="">
 						</div>
-						<h5 class="card-title text-center" th:text="${vet.nombreVeterinaria}">.</h5>
-						<p class="card-text text-ce	nter" th:text="${vet.descripcionVeterinaria}">.</p>
+						<h5 class="card-title text-center" th:text=" 'Vet Name: ' + ${vet.nombreVeterinaria}">.</h5>
+						<p class="card-text text-ce	nter" th:text=" 'Vet Description: ' + ${vet.descripcionVeterinaria}">.</p>
+						<p class="card-text text-ce	nter" th:text=" 'Vet Direcction: ' + ${vet.direccionVeterinaria}">.</p>
 						<a th:href="@{'/vets/' + ${vet.idVeterinaria}}" class="btn btn-danger">View Details</a>
 						<a href="/vets/search1"class="btn btn-danger">Return</a>
 					</div>

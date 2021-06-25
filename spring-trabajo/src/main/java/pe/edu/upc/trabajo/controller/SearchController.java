@@ -33,7 +33,7 @@ public class SearchController {
 
 	
 	@GetMapping("vets")
-	public String searchRegionGet(Model model, @ModelAttribute("vetSearch") Veterinaria vetSearch) {
+	public String searchVetGet(Model model, @ModelAttribute("vetSearch") Veterinaria vetSearch) {
 		System.out.println(vetSearch.getNombreVeterinaria());
 		try {
 			List<Veterinaria> vetsFound = veterinariaService.findByNombreVeterinaria(vetSearch.getNombreVeterinaria());

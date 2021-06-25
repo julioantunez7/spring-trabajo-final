@@ -79,7 +79,7 @@
 										Appointment</a></li>
 								<li><a class="dropdown-item" href="#">Consultation</a></li>
 							</ul></li>
-						<li class="nav-item"><a href="#"
+						<li class="nav-item"><a th:href="@{/login}"
 							class="btn btn-white btn-outline-secondary"> Sing in </a></li>
 						<li class="nav-item "><a href="#"
 							class="btn btn-white btn-outline-secondary"> Sing up </a></li>
@@ -91,7 +91,7 @@
 								<li><a class="dropdown-item" href="#">Change
 										information</a></li>
 								<li><a class="dropdown-item" href="#">Change password</a></li>
-								<li><a class="dropdown-item" href="#">Log out</a></li>
+								<li><a class="dropdown-item" th:href="@{logout}">Log out</a></li>
 							</ul></li>
 					</ul>
 				</div>

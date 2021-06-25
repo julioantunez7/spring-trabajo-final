@@ -9,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "Clientes")
@@ -29,6 +31,8 @@ public class Cliente {
 	@Column(name = "cliente_numero", columnDefinition = "NUMERIC(9)")
 	private Integer numero;
 	
+	@OneToOne(mappedBy = "cliente")
+	private User user;
 	
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	private List<Mascota> mascotas;
@@ -119,6 +123,15 @@ public class Cliente {
 
 	public void setBoletas(List<Boleta> boletas) {
 		this.boletas = boletas;
+	}
+
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
