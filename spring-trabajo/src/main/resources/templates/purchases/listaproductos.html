@@ -12,57 +12,89 @@
 		<section class="bg-light">
 			<div class="container ">
 				<div align="center" class="py-3 text-center ">
-					<img src="../images/pet-shop.png" class="img-fluid" alt=""
-						width="250" height="250">
+					<h1>List of Products</h1>
+					<br> <img src="../images/pet-shop.png" class="img-fluid"
+						alt="" width="250" height="250">
 				</div>
 				<div class="row">
-
-					<div class="col-lg-6 px-3 py-3 text-center ">
-						<h1>List of Products</h1>
+					<div class="row row-cols-1 row-cols-md-5 g-4" style="margin: 15px;">
+						<div class="col" th:each="producto : ${compras}">
+							<form th:action="@{/purchases/save-buy1}" th:object="${compraProducto}" method="post">
+							<div class="card border-success">
+								<img th:src="@{/images/frasco-de-pastillas.png}"
+									class="card-img-top" alt="...">
+								<div class="card-body px-2 py-2 text-center">
+									<a style="text-decoration: none;">
+										<h5 class="card-title" th:text="${producto.nombreProducto }">.
+										</h5>
+									</a>
+									<p class="card-text">
+										<strong>Price:</strong> <span
+											th:text="${producto.precioProducto }"></span> <br>
+									</p>
+									<div class="row">
+										<div>
+											<h5 class="text-black">Quantity:</h5>
+											<select  class="form-select"
+												aria-label="Default select example">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select> <br>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-success"><i
+										class="fas fa-money-bill-wave"></i> Buy</button>
+								</div>
+							</div></form>
+						</div>
+					</div>
+				</div>
+				<div align="center" class="py-3 text-center ">
+					<br>
+					<h1>Shopping Cart</h1>
+					<br>
+					<div>
 						<table class="table table-info table-striped table-hover">
 							<thead>
 								<tr>
 									<th>Id</th>
 									<th>Name</th>
 									<th>Price</th>
+									<th>Quantity</th>
+									<th>Amount</th>
+									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="producto : ${compras}">
+								<tr th:each="producto : ${productos}">
 									<th th:text="${producto.idProducto}">.</th>
 									<th th:text="${producto.nombreProducto}">.</th>
 									<th th:text="${producto.precioProducto}">.</th>
+									<th th:text="${compra.cantidad}">.</th>
+									<th th:text="${producto.precioProducto*compra.cantidad}">.</th>
+									<td>
+										<button style="margin-left: 25px" class="btn btn-warning"
+											type="submit">
+											<i class="far fa-trash-alt"> Delete</i>
+										</button>
+									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<br></br>
-					<div class="text-black col-lg-6 px-3 py-3 text-center">
-						<h3 class="text-black py-3">Choose a product</h3>
-						<select class="form-select" aria-label="Default select example">
-							<option th:each="producto : ${compras}"
-								th:text="${producto.nombreProducto}"
-								th:value="${producto.idProducto}"></option>
-						</select>
-						<h3 class="text-black py-3">Select a quantity</h3>
-						<select class="form-select" aria-label="Default select example">
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select> <br></br> 
-						<a style="margin-right: 50px" class="btn btn-warning" href="/" type="submit">
-							<i class="fas fa-undo-alt"> Return</i>
-						</a>
-						<a style="margin-left: 50px" class="btn btn-warning" href="/purchases/addpurchase" type="submit">
-							<i class="fas fa-shopping-cart"> Buy</i>
-						</a> <br></br>
+					<br>
+					<div>
+						<a class="btn btn-warning" href="/purchases/addpurchase"
+							type="submit"> <i class="fas fa-shopping-cart"> Buy</i>
+						</a> <br>
 					</div>
 				</div>
 			</div>
-
 		</section>
 	</main>
-
 	<footer th:replace="layout/layout :: footer"></footer>
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
