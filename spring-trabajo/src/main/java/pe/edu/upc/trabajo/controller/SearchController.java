@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.upc.trabajo.model.entity.Cita;
+import pe.edu.upc.trabajo.model.entity.Mascota;
 import pe.edu.upc.trabajo.model.entity.Producto;
 import pe.edu.upc.trabajo.model.entity.Veterinaria;
 import pe.edu.upc.trabajo.model.entity.Veterinario;
 import pe.edu.upc.trabajo.service.crud.CitaService;
+import pe.edu.upc.trabajo.service.crud.MascotaService;
 import pe.edu.upc.trabajo.service.crud.ProductoService;
 import pe.edu.upc.trabajo.service.crud.VeterinariaService;
 import pe.edu.upc.trabajo.service.crud.VeterinarioService;
@@ -35,6 +37,9 @@ public class SearchController {
 
 	@Autowired
 	private VeterinarioService veterinarioService;
+	
+	@Autowired
+	private MascotaService mascotaService;
 	
 	@GetMapping("vets")
 	public String searchVetGet(Model model, @ModelAttribute("vetSearch") Veterinaria vetSearch) {
@@ -134,6 +139,23 @@ public class SearchController {
 		}
 		
 		return "search/veterinario-result";
+	}
+	
+	//------MASCOTA----
+	
+	@GetMapping("pets")
+	public String searchPetGet(Model model, @ModelAttribute("petSearch") Mascota petSearch) {
+		System.out.println(petSearch.getNombre());
+		try {
+			List<Mascota> petsFound=mascotaService.findByNombre(petSearch.getNombre());
+			model.addAttribute("petsFound", petsFound);
+			model.addAttribute("petSearch", petSearch);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		return "search/pets-result";
 	}
 	
 }

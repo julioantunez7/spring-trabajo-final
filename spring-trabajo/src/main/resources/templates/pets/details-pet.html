@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main>
+		<section class="bg-light">
+			<div class="container py-3 ">
+				<h2>Pet details:</h2>
+				<div class="row">
+					<div class="col-lg-6 py-5 text-center ">
+						<img src="../images/pet2.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 py-5 text-center">
+						<h2 class="text-black text-center" th:text=" 'PET CODE: ' +${pet.idMascota}">.</h2>
+						<br></br>
+						<h4 class="card-text text-center"
+							th:text="'Pet Name: ' +${pet.nombre}">.</h4>
+						<h4 class="card-text text-center"
+							th:text="'Age: ' + ${pet.edad}">.</h4>
+						<h4 class="card-text text-center"
+							th:text="'Breed: ' +${pet.raza}">.</h4>
+						<h4 class="card-text text-center"
+							th:text="'Owner: ' +${pet.cliente.nombre}">.</h4>							
+						<a href="/pets/search" class="btn btn-warning btn-lg">Return</a>
+						 
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

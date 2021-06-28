@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.trabajo.model.entity.Cita;
 import pe.edu.upc.trabajo.model.repository.CitaRepository;
@@ -22,6 +23,7 @@ public class CitaServiceImpl implements CitaService {
 		return citaRepository;
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public List<Cita> findByFecha(Date fecha) throws Exception {
 		return citaRepository.findByFecha(fecha);

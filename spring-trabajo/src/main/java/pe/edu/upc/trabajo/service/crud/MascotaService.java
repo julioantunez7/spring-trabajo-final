@@ -6,5 +6,4 @@ import pe.edu.upc.trabajo.model.entity.Mascota;
 
 public interface MascotaService extends CrudService<Mascota, Integer> {
 	List<Mascota> findByNombre(String nombre) throws Exception;
-
 }

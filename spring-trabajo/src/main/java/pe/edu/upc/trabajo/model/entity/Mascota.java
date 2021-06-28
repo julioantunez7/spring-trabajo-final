@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Mascotas"
-,indexes = { @Index(columnList = "mascota_nombre", name = "mascotas_index_nombre")})
+		,indexes = { @Index(columnList = "mascota_nombre", name = "mascotas_index_mascota_nombre")})
 public class Mascota {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
