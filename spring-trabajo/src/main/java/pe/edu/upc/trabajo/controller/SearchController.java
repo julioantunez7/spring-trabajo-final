@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pe.edu.upc.trabajo.model.entity.Cita;
 import pe.edu.upc.trabajo.model.entity.Producto;
 import pe.edu.upc.trabajo.model.entity.Veterinaria;
+import pe.edu.upc.trabajo.model.entity.Veterinario;
 import pe.edu.upc.trabajo.service.crud.CitaService;
 import pe.edu.upc.trabajo.service.crud.ProductoService;
 import pe.edu.upc.trabajo.service.crud.VeterinariaService;
+import pe.edu.upc.trabajo.service.crud.VeterinarioService;
 
 @Controller
 @RequestMapping("/search")
@@ -31,6 +33,8 @@ public class SearchController {
 	@Autowired
 	private CitaService citaService;
 
+	@Autowired
+	private VeterinarioService veterinarioService;
 	
 	@GetMapping("vets")
 	public String searchVetGet(Model model, @ModelAttribute("vetSearch") Veterinaria vetSearch) {
@@ -113,6 +117,23 @@ public class SearchController {
 		}
 		
 		return "search/appointments-result";
+	}
+	
+	//------VETERINARIO----
+	
+	@GetMapping("veterinarios")
+	public String searchVeterinarioGet(Model model, @ModelAttribute("veteSearch") Veterinario veteSearch) {
+		System.out.println(veteSearch.getNombre());
+		try {
+			List<Veterinario> veteFound = veterinarioService.findByNombre(veteSearch.getNombre());
+			model.addAttribute("veteFound", veteFound);
+			model.addAttribute("veteSearch", veteSearch);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		return "search/veterinario-result";
 	}
 	
 }

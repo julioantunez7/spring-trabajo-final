@@ -23,7 +23,7 @@ public class InitDB implements CommandLineRunner {
 		BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
 		
 	// SOLO DESBLOQUEAR CUANDO SE CREEN LOS USUARIOS DE FORMA MANUAL	
-		/*		
+	/*
 		Cliente clienteAntunez = null;
 		Cliente clientePerez = null;
 
@@ -61,6 +61,6 @@ public class InitDB implements CommandLineRunner {
 		antunez.addAuthority("ACCESS_VIEW_CUSTOMER");
 
 		userRepository.save(antunez);
-		userRepository.save(perez);*/	
+		userRepository.save(perez);	*/
 	}
 }

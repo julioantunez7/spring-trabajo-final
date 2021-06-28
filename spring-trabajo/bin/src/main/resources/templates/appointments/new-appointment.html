@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+
+	<form th:action="@{/appointments/savenew}" th:object="${citaNew}"
+		method="post">
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col col-3"></div>
+				<div class="col col-9">
+
+					<div class="card" style="width: 40rem;">
+						<div class="card-header">Nueva cita</div>
+						<div class="card-body">
+
+
+
+							<div class="mb-3">
+								<label for="ID" class="form-label">ID</label> <input type="text"
+									class="form-control" th:field="*{id}" placeholder="id">
+							</div>
+
+							<div class="mb-1">
+								<label for="veterinario" class="form-label">Veterinario</label>
+
+
+								<select class="form-select" aria-label="Default select example"
+									th:field="*{veterinario.id}">
+
+									<option th:each="veterinario : ${veterinarioNew}"
+										th:value="${veterinario.id}" th:text="${veterinario.nombre}">
+									</option>
+
+								</select>
+							</div>
+
+
+							<div class="mb-1">
+								<label for="mascota" class="form-label">Pet</label> <select
+									class="form-select" aria-label="Default select example"
+									th:field="*{mascota.idMascota}">
+
+									<option th:each="mascota : ${mascotaNew}"
+										th:value="${mascota.idMascota}" th:text="${mascota.nombre}">
+									</option>
+								</select>
+							</div>
+
+
+							<div class="mb-3">
+								<label for="fecha" class="form-label">Date</label> <input
+									type="text" class="form-control" th:field="*{fecha}"
+									placeholder="Fecha de la cita">
+							</div>
+
+							<div class="mb-3">
+								<label for="razon" class="form-label">Reason</label> <input
+									type="text" class="form-control" th:field="*{razon}"
+									placeholder="Razon de la cita">
+							</div>
+
+							<div class="mb-3">
+								<label for="precio" class="form-label">Price</label> <input
+									type="text" class="form-control" th:field="*{precio}"
+									placeholder="Precio de la cita">
+							</div>
+
+
+							<button type="submit" class="btn btn-primary">Save</button>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+	</form>
+
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

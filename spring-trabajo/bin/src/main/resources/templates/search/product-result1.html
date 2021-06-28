@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	
+	
+	
+	
+	<main>
+		<h2>Result search:</h2>
+
+		<div class="row" style="margin: 20px;">
+			<div th:each="prod : ${proDescripcionFound}" class="col-sm-2">
+				<div class="card">
+					<div class="card-body">
+						<div class="text-center ">
+							<img src="../images/frasco-de-pastillas.png" class="img-fluid" alt="">
+						</div>
+						<h5 class="card-title text-center" th:text="${prod.nombreProducto}">.</h5>
+						<p class="card-text text-center" th:text="${prod.descripcionProducto}">.</p>
+					
+						<a th:href="@{'/products/' + ${prod.idProducto}}" class="btn btn-danger">View Details</a>
+						<a href="/products/search2"class="btn btn-danger">Return</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	
+	
+	
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

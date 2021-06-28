@@ -1,6 +1,7 @@
 package pe.edu.upc.trabajo.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class ProductoController {
 		try {
 			Producto proSearch = new Producto();
 			model.addAttribute("proSearch", proSearch);
+						
+			List<Producto> products = productoService.getAll();
+			model.addAttribute("products", products);
+			
 			Producto proDescripcionSearch = new Producto();
 			model.addAttribute("proDescripcionSearch", proDescripcionSearch);
 		} catch (Exception e) {
