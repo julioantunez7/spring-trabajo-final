@@ -18,11 +18,11 @@
 						<h4 class="card-text text-center"
 							th:text="'Pet Name: ' +${pet.nombre}">.</h4>
 						<h4 class="card-text text-center"
-							th:text="'Age: ' + ${pet.edad}">.</h4>
+							th:text="'Pet Age: ' + ${pet.edad}">.</h4>
 						<h4 class="card-text text-center"
 							th:text="'Breed: ' +${pet.raza}">.</h4>
 						<h4 class="card-text text-center"
-							th:text="'Owner: ' +${pet.cliente.nombre}">.</h4>							
+							th:text="'Owner: ' +${pet.cliente.nombre} + ' ' + ${pet.cliente.apellido}">.</h4>							
 						<a href="/pets/search" class="btn btn-warning btn-lg">Return</a>
 						 
 					</div>
