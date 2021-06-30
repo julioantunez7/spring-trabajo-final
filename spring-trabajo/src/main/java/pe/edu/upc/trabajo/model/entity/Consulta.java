@@ -11,10 +11,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Consultas")
 public class Consulta {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "consulta_id")
 	private Integer id;
+	
 	@Column(name = "consulta_receta", length = 30)
 	private String receta;
 	@Column(name = "link_whats", length = 30)

@@ -28,8 +28,8 @@
 							
 						<a th:href="@{'/appointments/' + ${appointment.id} + '/edit'}" class="btn btn-info btn-lg">Edit Appointment</a>
 						<a th:href="@{'/appointments/' + ${appointment.id} + '/virtualconsult'}" class="btn btn-success btn-lg">Consulta virtual</a>
-						
-						<a href="" class="btn btn-danger btn-lg">Cancel Appointment</a>  
+				
+						<a th:href="@{'/appointments/' + ${appointment.id} + '/delete'}" class="btn btn-danger btn-lg">Cancel Appointment</a>  
 					</div>
 				</div>
 			</div>
