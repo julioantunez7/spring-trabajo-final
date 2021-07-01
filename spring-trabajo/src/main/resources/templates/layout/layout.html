@@ -28,9 +28,9 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item " sec:authorize="hasRole('ROLE_VETERINARY')"><a class="nav-link" href="/customers/search">Customers</a>
+						<li class="nav-item" sec:authorize="hasRole('ROLE_VETERINARY')"><a class="nav-link" href="/customers/search">Customers</a>
 						</li>
-						<li class="nav-item dropdown" sec:authorize="hasAnyRole('ROLE_CUSTOMER','ROLE_VETERINARY')"><a
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Pets </a>
@@ -39,7 +39,7 @@
 								<li><a class="dropdown-item" href="/pets/search">Search Pets</a></li>
 							</ul></li>
 
-						<li class="nav-item dropdown" sec:authorize="hasAnyRole('ROLE_CUSTOMER','ROLE_VETERINARY')"><a
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Vets </a>
@@ -49,7 +49,7 @@
 										Vet</a></li>
 							</ul></li>
 
-						<li class="nav-item dropdown" sec:authorize="hasRole('ROLE_VETERINARY')"><a
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Veterinary </a>
@@ -57,7 +57,7 @@
 								<li><a class="dropdown-item" href="#">New Veterinary</a></li>
 								<li><a class="dropdown-item" href="/veterinarios/search3">Search Veterinary</a></li>
 							</ul></li>
-						<li class="nav-item dropdown" sec:authorize="hasAnyRole('ROLE_CUSTOMER','ROLE_VETERINARY')"><a
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Products </a>
@@ -69,7 +69,7 @@
 										Products</a></li>
 							</ul></li>
 
-						<li class="nav-item dropdown" sec:authorize="hasAnyRole('ROLE_CUSTOMER','ROLE_VETERINARY')"><a
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Appointment </a>
@@ -88,8 +88,7 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								My profile </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="/customers/search">Change
-										information</a></li>
+								<li><a class="dropdown-item" href="/customers/search">View details</a></li>
 								<li><a class="dropdown-item" href="#">Change password</a></li>
 								<li><a class="dropdown-item" th:href="@{../logout}">Log
 										out</a></li>

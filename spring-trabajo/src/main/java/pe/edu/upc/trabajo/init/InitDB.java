@@ -59,6 +59,8 @@ public class InitDB implements CommandLineRunner {
 		perez.addAuthority("ACCESS_VIEW_CUSTOMER");
 		perez.addAuthority("ACCESS_MODIFY_CUSTOMER");
 		antunez.addAuthority("ACCESS_VIEW_CUSTOMER");
+		antunez.addAuthority(ACCESS_NEW_APPOINTMENTS);
+		
 
 		userRepository.save(antunez);
 		userRepository.save(perez);	*/

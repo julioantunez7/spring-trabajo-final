@@ -55,8 +55,7 @@
 						<h5 class="card-title text-center" th:text=" 'Vet Name: ' + ${vet.nombreVeterinaria}">.</h5>
 						<p class="card-text text-ce	nter" th:text=" 'Vet Description: ' + ${vet.descripcionVeterinaria}">.</p>
 						<p class="card-text text-ce	nter" th:text=" 'Vet Direcction: ' + ${vet.direccionVeterinaria}">.</p>
-						<a th:href="@{'/vets/' + ${vet.idVeterinaria}}" class="btn btn-danger">View Details</a>
-						<a href="/vets/search1"class="btn btn-danger">Return</a>
+						<a th:href="@{'/vets/' + ${vet.idVeterinaria}}" class="btn btn-info btn-lg">View Details</a>
 					</div>
 				</div>
 			</div>

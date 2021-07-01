@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/layout :: head">
 </head>
 <body>
@@ -27,12 +28,12 @@
 						<h4 class="card-text text-center"
 							th:text="'Reason: ' +${appointment.razon}">.</h4>
 
-						<a th:href="@{'/appointments/' + ${appointment.id} + '/edit'}"
-							class="btn btn-info btn-lg">Edit Appointment</a> <a
+						<a  th:href="@{'/appointments/' + ${appointment.id} + '/edit'}"
+							class="btn btn-info btn-lg" sec:authorize="hasRole('ROLE_CUSTOMER')">Edit Appointment</a> <a 
 							th:href="@{'/appointments/' + ${appointment.id} + '/virtualconsult'}"
 							class="btn btn-success btn-lg">Virtual Consultation </a> <a
 							th:href="@{'/appointments/' + ${appointment.id} + '/delete'}"
-							class="btn btn-danger btn-lg">Cancel Appointment</a>
+							class="btn btn-danger btn-lg" sec:authorize="hasRole('ROLE_CUSTOMER')">Cancel Appointment</a>
 					</div>
 				</div>
 			</div>
