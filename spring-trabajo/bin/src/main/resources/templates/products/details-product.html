@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<section class="bg-light">
+			<div class="container py-3 ">
+				<h2>Product Information:</h2>
+				<div class="row">
+					<div class="col-lg-6 py-5 text-center ">
+						<img src="../images/frasco-de-pastillas.png" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 py-5 text-center">
+						<h3 class="text-black text-center"
+							th:text="${pro.nombreProducto}">.</h3>
+						<p class="card-text text-ce	nter"
+							th:text="${pro.descripcionProducto}">.</p>
+						<p class="card-text text-ce	nter"
+							th:text="${pro.precioProducto}">.</p>
+						
+						<a href="#" class="btn btn-danger">Citation</a> <a href="#"
+							class="btn btn-danger">Products</a> <a href="/"
+							class="btn btn-danger">Exit</a>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

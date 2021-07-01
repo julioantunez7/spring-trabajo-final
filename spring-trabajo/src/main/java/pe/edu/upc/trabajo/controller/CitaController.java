@@ -25,41 +25,41 @@ import pe.edu.upc.trabajo.service.crud.VeterinarioService;
 @RequestMapping("/appointments")
 
 public class CitaController {
-	
+
 	@Autowired
 	private CitaService citaService;
-	
+
 	@Autowired
 	private VeterinarioService veterinarioService;
-	
+
 	@Autowired
 	private MascotaService mascotaService;
-	
+
 	@Autowired
 	private ConsultaService consultaService;
-	
-	//-----------------------------------------------------------------------------------------------
-	//--nuevo
-	@GetMapping("new")		
+
+	// -----------------------------------------------------------------------------------------------
+	// --nuevo
+	@GetMapping("new")
 	public String newItem(Model model) {
 		try {
 			Cita cita = new Cita();
 			List<Veterinario> veterinarios = veterinarioService.getAll();
 			List<Mascota> mascotas = mascotaService.getAll();
-			
+
 			model.addAttribute("citaNew", cita);
 			model.addAttribute("veterinarioNew", veterinarios);
 			model.addAttribute("mascotaNew", mascotas);
-			
+
 			return "appointments/new-appointment";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "redirect:/";	
+		return "redirect:/";
 	}
-	
-	@PostMapping("savenew")	
+
+	@PostMapping("savenew")
 	public String saveNew(Model model, @ModelAttribute("citaNew") Cita cita) {
 		try {
 			Cita citaReturn = citaService.create(cita);
@@ -71,67 +71,75 @@ public class CitaController {
 		}
 		return "redirect:/";
 	}
-	
-	//-----------------------------------------------------------------------------------------------
-	//---Editar
-	
-	@GetMapping("{id}/edit")	
+
+	// -----------------------------------------------------------------------------------------------
+	// ---Editar
+
+	@GetMapping("{id}/edit")
 	public String findById2(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Cita> optional = citaService.findById(id);
 			List<Veterinario> veterinarios1 = veterinarioService.getAll();
 			List<Mascota> mascotas1 = mascotaService.getAll();
-			
-			if(optional.isPresent()) {
+
+			if (optional.isPresent()) {
 				model.addAttribute("citaEdit", optional.get());
 				model.addAttribute("veterinarioNew", veterinarios1);
 				model.addAttribute("mascotaNew", mascotas1);
-				
+
 				return "appointments/edit-appointment";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "redirect:/";	
+		return "redirect:/";
 	}
-	
-	@PostMapping("save")	
+
+	@PostMapping("save")
 	public String saveEdit(Model model, @ModelAttribute("citaEdit") Cita cita) {
 		try {
 			Cita citaReturn = citaService.update(cita);
 			model.addAttribute("cita", citaReturn);
-			return "index"; 
+			return "index";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 		return "redirect:/";
 	}
-	
-	//-----------------------------------------------------------------------------------------------
-	//---------------------------------Consulta
-	@GetMapping("{id}/virtualconsult")	
+
+	// -----------------------------------------------------------------------------------------------
+	// ---------------------------------Consulta
+	@GetMapping("{id}/virtualconsult")
 	public String virtual_consult1(Model model, @PathVariable("id") Integer id) {
 		try {
-			Consulta consulta=new Consulta();
+			Consulta consulta = new Consulta();
 			Optional<Cita> optional = citaService.findById(id);
-			
+
 			model.addAttribute("consultaNew", consulta);
 			model.addAttribute("cita", optional.get());
-			
-			return "appointments/virtualConsultation"; 
+
+			Optional<Consulta> optional2 = consultaService.findById(id);
+
+			if (optional2.isEmpty()) {
+				optional2 = consultaService.findById(0);
+			}
+
+			model.addAttribute("consultaLista", optional2.get());
+
+			return "appointments/virtualConsultation";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 		return "redirect:/";
 	}
-	
-	@PostMapping("saveConsulta")	
+
+	@PostMapping("saveConsulta")
 	public String saveNew(Model model, @ModelAttribute("consultaNew") Consulta consulta) {
 		try {
-			Consulta consultaReturn=consultaService.create(consulta);
+			Consulta consultaReturn = consultaService.create(consulta);
 			model.addAttribute("consulta", consultaReturn);
 			return "index"; // Archivo Html
 		} catch (Exception e) {
@@ -140,32 +148,46 @@ public class CitaController {
 		}
 		return "redirect:/";
 	}
-	
-	
-	
-	//-----------------------------------------------------------------------------------------------
-	//----------------------------------Busqueda
+
+	// ----------------------------------------------
+	/// ---------------------------Eliminar Cita
+	@GetMapping("{id}/delete")
+	public String borrarCita(Model model,@PathVariable("id") Integer id) {
+		try {
+			citaService.deteleById(id);
+				
+			return "redirect:/";
+			
+		} 
+		catch (Exception e) {
+
+		}
+		return "redirect:/";
+	}
+
+	// -----------------------------------------------------------------------------------------------
+	// ----------------------------------Busqueda
 	@GetMapping("search")
 	public String buscar(Model model) {
 		try {
 			List<Cita> appointments = citaService.getAll();
 			model.addAttribute("appointments", appointments);
-			
+
 			Cita appointmentSearch = new Cita();
 			model.addAttribute("appointmentSearch", appointmentSearch);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		
+
 		return "appointments/search-appointment";
 	}
-	
+
 	@GetMapping("{id}")
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Cita> optional = citaService.findById(id);
-			if(optional.isPresent()) {
+			if (optional.isPresent()) {
 				model.addAttribute("appointment", optional.get());
 				return "appointments/details-appointment";
 			}
@@ -175,7 +197,5 @@ public class CitaController {
 		}
 		return "";
 	}
-	
-	
-	
+
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<section class="bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 py-5 text-center ">
+						<img width=60% height=50% src="../images/pet1.jpg" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 py-5 text-center">
+						<h2 class="text-black py-5">Search Pet</h2>
+
+						<form class="d-flex" th:action="@{/search/pets}"
+							th:object="${petSearch}" method="get" >
+							<input class="form-control" type="search"
+								  th:field="*{nombre}" placeholder="Search Pets By Name"
+								aria-label="Search">
+							<button class="btn btn-warning" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+						
+						<br></br>
+						<a class="btn btn-warning btn-lg" href="/" type="submit">
+								<i >Go to Home Page</i>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+		
+		<h2 class="text-center">Pet List</h2>
+		<div class="row" style="margin: 20px;">
+			<div th:each="pet : ${pets}" class="col-sm-2">
+				<div class="card text-center border-success" >
+					<div class="card-body">
+						<div class="text-center ">
+							<img src="../images/pet2.jpg" class="img-fluid" alt="">
+
+						</div>
+
+						<h3 class="card-title text-center" th:text=" 'PET CODE: ' + ${pet.idMascota}"></h3>
+						<h4 class="card-text text-left" th:size="4" th:text=" 'Pet Name: ' + ${pet.nombre}"></h4>
+						<a th:href="@{'/pets/' + ${pet.idMascota}}" class="btn btn-info btn-lg" >View Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

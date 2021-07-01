@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<section class="bg-light">
+			<div class="container ">
+				<div class="row">
+					<div class="col-lg-6 py-5 text-center ">
+						<img src="../images/frasco-de-pastillas.png" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 py-5 text-center">
+						<h3 class="text-black py-5">Search Products</h2>
+
+						<form class="d-flex" th:action="@{/search/products}"
+							th:object="${proSearch}" method="get">
+							<input class="form-control me-2" type="search"
+								th:field="*{nombreProducto}" placeholder="Search Products"
+								aria-label="Search">
+							<button class="btn btn-warning" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+						<br></br>
+						<form class="d-flex" th:action="@{/search/products/descripcion}"
+						 th:object="${proDescripcionSearch}" method="get">
+							<input class="form-control me-2" type="search"
+							   th:field="*{descripcionProducto}" placeholder="Search Products Descripcions"
+								aria-label="Search">
+							<button class="btn btn-warning" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+						<br></br>
+						<a class="btn btn-warning" href="/" type="submit">
+								<i >Return</i>
+							</a>
+					</div>
+				</div>
+			</div>
+
+		</section>
+		
+		<h2 class="text-center">Products List</h2>
+		<div class="row" style="margin: 20px;">
+			<div th:each="pro : ${products}" class="col-sm-2">
+				<div class="card">
+					<div class="card-body">
+						<div class="text-center ">
+							<img src="../images/frasco-de-pastillas.png" class="img-fluid" alt="">
+						</div>
+						<h5 class="card-title text-center" th:text="${pro.nombreProducto}">.</h5>			
+						<p class="card-text text-ce	nter" th:text="${pro.precioProducto}">.</p>
+						<a th:href="@{'/products/' + ${pro.idProducto}}" class="btn btn-danger">View Details</a>
+						<a href="/products/search2"class="btn btn-danger">Return</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
