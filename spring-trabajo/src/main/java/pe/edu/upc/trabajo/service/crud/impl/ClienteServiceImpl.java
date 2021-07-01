@@ -1,6 +1,8 @@
 package pe.edu.upc.trabajo.service.crud.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,11 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public JpaRepository<Cliente, Integer> getRepository() {
 		return clienteRepository;
+	}
+
+	@Override
+	public List<Cliente> findByNombre(String nombre) throws Exception {
+		return clienteRepository.findByNombre(nombre);
 	}
 
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main>
+		<section class="bg-light">
+			<div class="container py-3 ">
+				<h2>Customer details:</h2>
+				<div class="row">
+					<div class="col-lg-6 py-5 text-center ">
+						<img src="../images/customercard.png" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 py-5 text-center">
+						<h2 class="text-black text-center" th:text=" 'CUSTOMER CODE: ' +${customer.idCliente}">.</h2>
+						<br></br>
+						<h4 class="card-text text-center"
+							th:text="'Customer Full Name: ' +${customer.nombre}+ ' ' + ${customer.apellido}">.</h4>
+						<h4 class="card-text text-center"
+							th:text="'Customer E-mail: ' + ${customer.correo}">.</h4>
+						<h4 class="card-text text-center"
+							th:text="'Address: ' +${customer.direccion}">.</h4>
+						<h4 class="card-text text-center"
+							th:text="'Phone Number: ' +${customer.numero}">.</h4>							
+						<a href="/customers/search" class="btn btn-warning btn-lg">Return</a>
+						 
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
