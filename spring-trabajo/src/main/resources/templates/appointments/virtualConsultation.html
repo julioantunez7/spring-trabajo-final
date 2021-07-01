@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="layout/layout :: head">
 </head>
 <body>
@@ -22,44 +24,71 @@
 				<div class="col col-6">
 
 					<br> <br>
-					<div class="mb-3">
-						<label for="" class="form-label">Information for Client:</label><br>
-						<label for="" class="form-label">URL Whatsapp:</label> <label
-							for="" class="form-label">https://web.whatsapp.com/</label><br>
-						<label for="" class="form-label">Cita ID:</label> <label for=""
-							class="form-label" th:text="${cita.id}"></label>
+
+					<div class="container"
+						sec:authorize="hasAnyRole('ROLE_CUSTOMER','ROLE_VETERINARY')">
+
+						<div class="mb-3">
+							<label for="" class="form-label">Information for Client:</label><br>
+							<label for="" class="form-label">URL Whatsapp:</label> <label
+								for="" class="form-label">https://web.whatsapp.com/</label><br>
+							<label for="" class="form-label">Cita ID:</label> <label for=""
+								class="form-label" th:text="${cita.id}"></label>
+						</div>
+
 					</div>
 
-					<br> <br> 
-					<label for="" class="form-label">Register of consult</label><br>
-					<div class="mb-3">
-						<label for="URL Whatsapp" class="form-label">URL Whatsapp</label>
-						<input type="text" class="form-control" id="floatingInputGrid"
-							th:field="*{linkwhats}">
+					<br> <br>
+
+					<div class="container" sec:authorize="hasRole('ROLE_CUSTOMER')">
+
+						<label for="" class="form-label">Diagnosis and Vet Recipe</label><br>
+
+
+						<div class="mb-3">
+							<label for="" class="form-label">Cita ID:</label> <label for=""
+								class="form-label" th:text="${consultaLista.receta}"></label>
+						</div>
+
+
 					</div>
 
 
-					<div class="input-group">
-						<span class="input-group-text">Receta</span>
-						<textarea class="form-control" aria-label="With textarea"
-							th:field="*{receta}"></textarea>
+					<div class="container" sec:authorize="hasRole('ROLE_VETERINARY')">
+
+						<label for="" class="form-label">Register of consult</label><br>
+						<div class="mb-3">
+							<label for="URL Whatsapp" class="form-label">URL Whatsapp</label>
+							<input type="text" class="form-control" id="floatingInputGrid"
+								th:field="*{linkwhats}">
+						</div>
+
+
+						<div class="input-group">
+							<span class="input-group-text">Receta</span>
+							<textarea class="form-control" aria-label="With textarea"
+								th:field="*{receta}"></textarea>
+						</div>
+
+
+						<div class="mb-3">
+							<label for="Cita" class="form-label">Cita</label> <input
+								type="text" class="form-control" th:field="*{cita}"
+								placeholder="Cita id">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Save
+							Consultation</button>
+
+
 					</div>
 
 
-					<div class="mb-3">
-						<label for="Cita" class="form-label">Cita</label> <input
-							type="text" class="form-control" th:field="*{cita}"
-							placeholder="Cita id">
-					</div>
-
-					<button type="submit" class="btn btn-primary">Save
-						Consultation</button>
 
 
 				</div>
 			</div>
 		</div>
-
 	</form>
 
 	<footer th:replace="layout/layout :: footer"></footer>
