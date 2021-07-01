@@ -13,7 +13,8 @@
 						<img src="../images/cardCita.jpg" class="img-fluid" alt="">
 					</div>
 					<div class="col-lg-6 py-5 text-center">
-						<h2 class="text-black text-center" th:text=" 'APPOINTMENT CODE: ' +${appointment.id}">.</h2>
+						<h2 class="text-black text-center"
+							th:text=" 'APPOINTMENT CODE: ' +${appointment.id}">.</h2>
 						<br></br>
 						<h4 class="card-text text-center"
 							th:text="'Veterinary Name: ' +${appointment.veterinario.nombre}">.</h4>
@@ -25,11 +26,13 @@
 							th:text="'Price: S/.' +${appointment.precio}">.</h4>
 						<h4 class="card-text text-center"
 							th:text="'Reason: ' +${appointment.razon}">.</h4>
-							
-						<a th:href="@{'/appointments/' + ${appointment.id} + '/edit'}" class="btn btn-info btn-lg">Edit Appointment</a>
-						<a th:href="@{'/appointments/' + ${appointment.id} + '/virtualconsult'}" class="btn btn-success btn-lg">Consulta virtual</a>
-				
-						<a th:href="@{'/appointments/' + ${appointment.id} + '/delete'}" class="btn btn-danger btn-lg">Cancel Appointment</a>  
+
+						<a th:href="@{'/appointments/' + ${appointment.id} + '/edit'}"
+							class="btn btn-info btn-lg">Edit Appointment</a> <a
+							th:href="@{'/appointments/' + ${appointment.id} + '/virtualconsult'}"
+							class="btn btn-success btn-lg">Virtual Consultation </a> <a
+							th:href="@{'/appointments/' + ${appointment.id} + '/delete'}"
+							class="btn btn-danger btn-lg">Cancel Appointment</a>
 					</div>
 				</div>
 			</div>
