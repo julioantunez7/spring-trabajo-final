@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.upc.trabajo.model.entity.Cita;
+import pe.edu.upc.trabajo.model.entity.Cliente;
 import pe.edu.upc.trabajo.model.entity.Mascota;
 import pe.edu.upc.trabajo.model.entity.Producto;
 import pe.edu.upc.trabajo.model.entity.Veterinaria;
 import pe.edu.upc.trabajo.model.entity.Veterinario;
 import pe.edu.upc.trabajo.service.crud.CitaService;
+import pe.edu.upc.trabajo.service.crud.ClienteService;
 import pe.edu.upc.trabajo.service.crud.MascotaService;
 import pe.edu.upc.trabajo.service.crud.ProductoService;
 import pe.edu.upc.trabajo.service.crud.VeterinariaService;
@@ -40,6 +42,9 @@ public class SearchController {
 	
 	@Autowired
 	private MascotaService mascotaService;
+	
+	@Autowired
+	private ClienteService customerService;
 	
 	@GetMapping("vets")
 	public String searchVetGet(Model model, @ModelAttribute("vetSearch") Veterinaria vetSearch) {
@@ -158,4 +163,18 @@ public class SearchController {
 		return "search/pets-result";
 	}
 	
+	@GetMapping("customers")
+	public String searchCustomerGet(Model model, @ModelAttribute("customerSearch") Cliente customerSearch) {
+		System.out.println(customerSearch.getNombre());
+		try {
+			List<Cliente> customersFound=customerService.findByNombre(customerSearch.getNombre());
+			model.addAttribute("customersFound", customersFound);
+			model.addAttribute("customerSearch", customerSearch);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		return "search/customer-result";
+	}
 }
